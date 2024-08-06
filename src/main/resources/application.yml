@@ -1,0 +1,30 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /information
+
+logging: 
+  file:
+    path: .
+    name: logs/${spring.application.name:sftp-service}.log
+  level: 
+    '[com.connection]': INFO
+    '[org.hibernate]': ERROR
+    '[org.springframework]': INFO
+    '[org.springframework.web]': ERROR
+    root: ERROR
+  pattern: 
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n'
+    file: '%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n'
+
+spring: 
+  application:
+    name: sftp-service
+  main: 
+    banner-mode: "off"
+
+sftp:
+  host: ${SFTP_HOST}
+  user: ${SFTP_USER}
+  password: ${SFTP_PASSOWORD}
+
